@@ -6,7 +6,7 @@ module ActiveAdmin
       def build(page_presenter, collection)
         @page_presenter = page_presenter
         @collection = if tree?
-                        roots
+                        roots.where(ancestry: nil)
                       else
                         collection
                       end
